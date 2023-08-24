@@ -1,0 +1,7 @@
+$com = gwmi Win32_COMSetting | ? {$_.progid } | select ProgId,Caption,InprocServer32
+
+$com | % {
+    $_.progid | out-file -append methods.txt
+    [activator]::CreateInstance([type]::GetTypeFromProgID(($_.progid))) | gm | out-file -append methods.txt
+    "`n`n" | out-file -append methods.txt
+}

@@ -1,0 +1,6 @@
+New-PSDrive -PSProvider registry -Root HKEY_CLASSES_ROOT -Name HKCR
+Get-ChildItem -Path HKCR:\CLSID -Name | Select -Skip 1 > clsids.txt
+
+
+# gwmi Win32_COMSetting | ? {$_.progid } | sort | ft ProgId,Caption,InprocServer32
+# Get-CimInstance Win32_DCOMApplication 

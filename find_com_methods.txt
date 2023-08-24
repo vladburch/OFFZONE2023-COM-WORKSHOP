@@ -1,0 +1,11 @@
+$Position  = 1
+$Filename = "win10-clsid-members.txt"
+$inputFilename = "clsids.txt"
+ForEach($CLSID in Get-Content $inputFilename) {
+      Write-Output "$($Position) - $($CLSID)"
+      Write-Output "------------------------" | Out-File $Filename -Append
+      Write-Output $($CLSID) | Out-File $Filename -Append
+      $handle = [activator]::CreateInstance([type]::GetTypeFromCLSID($CLSID))
+      $handle | Get-Member | Out-File $Filename -Append
+      $Position += 1
+}

